@@ -3,33 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment Page</title>
-    <link rel="stylesheet" href="anibuy.css">
+    <title>Interactive Payment Page</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-image: conic-gradient(red, yellow,skyblue, blue, black);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    width: 80%;
+}
+
+label {
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"], button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4CAF50;
+
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #26742a;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #888;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    animation: fadeInUp 0.5s ease;
+}
+
+    </style>
 </head>
 <body>
     <div class="container">
-        <h2>Secure Payment</h2>
-        <form id="payment-form">
-            <label for="card-number">Card Number:</label>
-            <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" required>
-            
-            <label for="expiry-date">Expiry Date:</label>
-            <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YYYY" required>
-            
-            <label for="cvv">CVV:</label>
-            <input type="text" id="cvv" name="cvv" placeholder="123" required>
-            
-            <label for="cardholder-name">Cardholder Name:</label>
-            <input type="text" id="cardholder-name" name="cardholder-name" placeholder="Full Name" required>
-        <div id="submit">
-            <button type="submit"><a href="psani.html" target="_blank">Pay Now</button></a>
-            
-        </div>
-        <div id="reset">
-            <button type="reset"><a href="http://127.0.0.1:5500/index.html">Main Page</a></button>
-        </div>
-        </form>
+        <header>
+            <h1>Secure Payment Gateway</h1>
+        </header>
+        <main>
+            <form id="paymentForm" onsubmit="return validateForm()">
+                <label for="cardNumber">Card Number:</label><br>
+                <input type="text" id="cardNumber" name="cardNumber" placeholder="Enter your card number" required><br><br>
+                <label for="expiry">Expiry Date:</label><br>
+                <input type="text" id="expiry" name="expiry" placeholder="MM/YY" required><br><br>
+                <label for="cvv">CVV:</label><br>
+                <input type="text" id="cvv" name="cvv" placeholder="CVV" required><br><br>
+                <button type="submit" id="payButton">Pay Now</button>
+            </form>
+        </main>
+        <footer>
+            <p>&copy; 2024 Secure Payment Gateway. All rights reserved.</p>
+        </footer>
     </div>
-    
+    <script>
+        function validateForm() {
+    var cardNumber = document.getElementById("cardNumber").value;
+    var expiry = document.getElementById("expiry").value;
+    var cvv = document.getElementById("cvv").value;
+
+    if (cardNumber.trim() === "" || expiry.trim() === "" || cvv.trim() === "") {
+        alert("Please fill out all required fields.");
+        return false;
+    }
+
+    // Additional validation logic can be added here if needed
+
+    return true;
+}
+
+    </script>
 </body>
 </html>
