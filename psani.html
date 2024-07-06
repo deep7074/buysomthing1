@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful</title>
+    <style>
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f1f1f1;
+}
+
+.container {
+    text-align: center;
+    animation: fadeInUp 0.8s ease forwards;
+    opacity: 0;
+}
+
+.success-icon {
+    margin-bottom: 20px;
+    animation: rotate 0.1s linear;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+h1 {
+    color: #333;
+    font-size: 36px;
+    margin: 10px 0;
+    letter-spacing: 1px;
+}
+
+p {
+    color: #666;
+    font-size: 20px;
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: #fff;
+    font-size: 18px;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="success-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><path fill="#4CAF50" d="M32 0C14.327 0 0 14.327 0 32s14.327 32 32 32s32-14.327 32-32S49.673 0 32 0zM27.172 49.172L12.828 34.828l4.242-4.242l10.102 10.102l20.828-20.828l4.242 4.242L27.172 49.172z"/></svg>
+        </div>
+        <h1>Payment Successful!</h1>
+        <p>Thank you for your purchase.</p>
+        <a href="http://127.0.0.1:5500/index.html" class="btn">Continue Shopping</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const container = document.querySelector('.container');
+    setTimeout(function() {
+        container.style.opacity = '1';
+    }, 500); // Adjust the delay as needed
+});
+    </script>
+</body>
+</html>
