@@ -1,129 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Payment Page</title>
+    <style>
 body {
-    background-color: #f4f4f4; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    height: 100vh; 
-    margin: 0;  
-
+    font-family: Arial, sans-serif;
+    background-color: #c0e2da;
+    margin: 0;
+    padding: 0;
 }
+
 .container {
-    background-color: #fff;
-    padding: 35px;
-    /* border-radius: 10px; */
-    /* box-shadow: 0 0 10px rgba(0,0,0,0.1); */
-    width: 400px;
-    height: 600px;
-    background: url(image/OIP.jpg);
-    color: rgb(3, 252, 3); 
-    border-radius: 20px;
-    box-shadow: 0px 0px 50px rgba(0,0,0,0.75);
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
-     
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-image: conic-gradient(red, yellow,skyblue, blue, black);
 }
 
-h2 {
-    font-weight: normal;
-    font-size: 24px;
-    text-shadow: 0px 0px 2px rgba(7, 1, 1, 0.5);
-    /* margin-bottom: 60px; */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+main {
+    display: flex;
+    justify-content: center;
 }
 
 form {
-    display: block;
-    box-sizing: border-box;
-    padding: 40px;
-    width: 100%;
-    height: 100%;
-    /* backdrop-filter: brightness(30%); */
-    flex-direction: column;
-    display: flex;
-    gap: 5px;
+    width: 80%;
 }
 
 label {
-    color: rgb(255, 255, 255);
-    text-transform: uppercase;
-    font-size: 14px;
-    letter-spacing: 2px;
-    padding: 10px;
+    font-weight: bold;
+    color: #eee9e9;
 }
 
 input[type="text"], button {
-    background: rgb(196, 231, 245);
-    height: 40px;
-    line-height: 40px;
-    border-radius: 20px;
-    padding: 0px 20px;
-    border: none;
-    margin-bottom: 20px;
-    color: rgb(19, 5, 5);
-    text-transform: uppercase;
-}
-
-input[type="text"] {
     width: 100%;
-}
-.div{
-    filter: blur(500px);
-    border-radius: 15px;
-    content: "";
-    animation: spin 2s linear infinite;
-    z-index: 1;
-}
-
-#submit button {
-
-    background: rgb(45, 231, 70);
-    height: 40px;
-    width: 100px;
-    line-height: 40px;
-    border-radius: 40px;
-    border: none;
-    margin: 10px opx;
-    box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
-    color: white;
-    font-size: 12px;
-    text-transform: uppercase;
-    cursor: pointer;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #e8edee;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #e6e6ece8;
     
+
 }
 
-#reset button {
+button {
+    background-color: #4CAF50;
 
-    background: rgb(240, 21, 5);
-    height: 40px;
-    width: 120px;
-    line-height: 40px;
-    border-radius: 40px;
-    border: none;
-    margin: 10px opx;
-    box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
     color: white;
-    font-size: 12px;
-    text-transform: uppercase;
+    border: none;
     cursor: pointer;
-    
+    transition: background-color 0.3s ease;
 }
 
-
-
-button:hover{
-    background-color: rgb(7, 151, 67);
-    color: white; 
+button:hover {
+    background-color: #26742a;
 }
-/* button:active {
-    background-color: #3e8e41;
-} */
 
-@media screen and (max-width: 480px) {
-    .container {
-        width: 90%;
-    }
-}
 a{
     text-decoration: none;
-    color: white;
+    color: rgb(250, 250, 250);
 }
+footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #888;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    animation: fadeInUp 0.5s ease;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Secure Payment Gateway</h1>
+        </header>
+        <main>
+            <form id="paymentForm" onsubmit="return validateForm()">
+                <label for="cardNumber">Card Number:</label><br>
+                <input type="text" id="cardNumber" name="cardNumber" placeholder="Enter your card number" required><br><br>
+                <label for="expiry">Expiry Date:</label><br>
+                <input type="text" id="expiry" name="expiry" placeholder="MM/YY" required><br><br>
+                <label for="cvv">CVV:</label><br>
+                <input type="text" id="cvv" name="cvv" placeholder="CVV" required><br><br>
+                <button type="submit" id="payButton"><a href="http://127.0.0.1:5500/psani.html" target="_blank">Pay Now</a></button>
+            </form>
+        </main>
+        <footer>
+            <p>&copy; 2024 Secure Payment Gateway. All rights reserved.</p>
+        </footer>
+    </div>
+    <script>
+        function validateForm() {
+    var cardNumber = document.getElementById("cardNumber").value;
+    var expiry = document.getElementById("expiry").value;
+    var cvv = document.getElementById("cvv").value;
+
+    if (cardNumber.trim() === "" || expiry.trim() === "" || cvv.trim() === "") {
+        alert("Please fill out all required fields.");
+        return false;
+    }
+
+    // Additional validation logic can be added here if needed
+
+    return true;
+}
+
+    </script>
+</body>
+</html>
